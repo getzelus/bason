@@ -1,0 +1,14 @@
+{
+  "name": "bason",
+  "version": "1.0.0",
+  "description": "Local database in a node.js project with json files",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["database", "nosql", "json", "nodejs"],
+  "author": "getzelus",
+  "homepage": "https://github.com/getzelus/bason#readme",
+  "license": "MIT"
+}
