@@ -12,10 +12,12 @@ Then it will create a new json file per collection (col) to improve performance 
 For every operation, as the first string argument, you need to specify the name of he collection (eg 'users').
 The majority of operations need a second object argument to create or find an element. 
 In this case, you only need one parameter (eg {name: 'Bob'}).
+For update, pass an object with multiple parameters, the first to find the element and the others to change it. 
 
 The functions should return the object or an array if they succeed. 
 If they dont find the request, they will return undefined. 
 If there is a bug, an error will be raised and the program wont crash if you use try catch.  
+Create gives back an object with a random id and the current timestamp. 
 
 
 ## Installation
@@ -24,6 +26,8 @@ If there is a bug, an error will be raised and the program wont crash if you use
 npm install smallbase
 ```
 
+To import this library, you need to set your project as ESM. 
+Add this line in your package.json : "type": "module" 
 
 ## Code
 
