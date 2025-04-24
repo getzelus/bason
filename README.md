@@ -17,7 +17,7 @@ In this case, you only need one parameter (eg {name: 'Bob'}).
 ## Installation
 
 ```bash
-npm install bason
+npm install smallbase
 ```
 
 
