@@ -13,6 +13,10 @@ For every operation, as the first string argument, you need to specify the name 
 The majority of operations need a second object argument to create or find an element. 
 In this case, you only need one parameter (eg {name: 'Bob'}).
 
+The functions should return the object or an array if they succeed. 
+If they dont find the request, they will return undefined. 
+If there is a bug, an error will be raised and the program wont crash if you use try catch.  
+
 
 ## Installation
 
@@ -24,32 +28,61 @@ npm install smallbase
 ## Code
 
 ```javascript
-import Smallbase from 'smallbase'  
+import sb from 'smallbase'  
 
 // Optional: Change storage location (default: './db/')
-Smallbase.setPath('./data/') 
+sb.setPath('./data/') 
 
-// Test create and find
+// Create
+sb.create('users' {name: 'Bob', age: 42})
+
+// Find
+sb.find('users', {name: 'Bob'})
+
+// Find all 
+sb.findAll('users', {age: 42})
+
+// Fetch all items
+const users = sb.fetch('users')
+
+// Fetch 10 items from second  
+const someUsers = sb.fetch('users', 2, 10)
+
+// Update 
+sb.update('users', {name: 'Bob', age: 52})
+
+// Delete 
+sb.delete('users', {name: 'Bob'})
+
+// Erase one collection
+sb.erase('users')
+
+// Erase all collections
+sb.erase()
+```
+
+
+## Test
+
+```javascript
+import sb from 'smallbase'  
+
+// Create, update and check if it works 
 try {
-    const newUser = Smallbase.create('users', { name: 'Bob', age: 42 })
-    const existingUser = Smallbase.find('users', { name: 'Bob' })
-    console.log(existingUser.age == newUser.age)
+    sb.create('users', { name: 'Bob', age: 42 })
+    const newAge = 52
+    sb.update('users', {name: 'Bob', age: newAge})
+    const user = sb.find('users', {name: 'Bob'})
+    // should display true 
+    console.log(user.age == newAge)
 }catch(e){
     console.error(e)
 }
-
-// Read  
-const users = Smallbase.fetch('users')
-
-// Update 
-Smallbase.update('users', {name: 'Bob', age: 52})
-
-// Delete 
-Smallbase.delete('users', {name: 'Bob'})
-
-// Erase
-Smallbase.erase('users')
 ```
+
+
+
+
 
 
 
