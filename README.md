@@ -1,4 +1,4 @@
-# Bason 
+# Smallbase 
 
 Local JSON database for consistents Node.js projects.
 Execute your CRUD operations synchronously without external dependencies.
