@@ -24,31 +24,31 @@ npm install smallbase
 ## Code
 
 ```javascript
-import Base from './Base.js'  // Adjust path as needed
+import Smallbase from 'smallbase'  
 
 // Optional: Change storage location (default: './db/')
-Base.setPath('./data/') 
+Smallbase.setPath('./data/') 
 
 // Test create and find
 try {
-    const newUser = Base.create('users', { name: 'Bob', age: 42 })
-    const existingUser = Base.find('users', { name: 'Bob' })
+    const newUser = Smallbase.create('users', { name: 'Bob', age: 42 })
+    const existingUser = Smallbase.find('users', { name: 'Bob' })
     console.log(existingUser.age == newUser.age)
 }catch(e){
     console.error(e)
 }
 
 // Read  
-const users = Base.fetch('users')
+const users = Smallbase.fetch('users')
 
 // Update 
-Base.update('users', {name: 'Bob', age: 52})
+Smallbase.update('users', {name: 'Bob', age: 52})
 
 // Delete 
-Base.delete('users', {name: 'Bob'})
+Smallbase.delete('users', {name: 'Bob'})
 
 // Erase
-Base.erase('users')
+Smallbase.erase('users')
 ```
 
 
